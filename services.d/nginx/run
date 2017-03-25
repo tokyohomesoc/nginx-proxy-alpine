@@ -1,2 +1,1 @@
-#!/usr/bin/execlineb -P
-exec nginx -g "daemon off;"
+nginx -g "daemon off;"
