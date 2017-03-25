@@ -1,17 +1,5 @@
 # nginx-proxy-alpine [![Build Status](https://travis-ci.org/tokyohomesoc/nginx-proxy-alpine.svg?branch=master)](https://travis-ci.org/tokyohomesoc/nginx-proxy-alpine)
 
-## HOU TO
-```yaml
-version: '2'
-services:
-  image: tokyohomesoc/rancher-server-proxy
-  container_name: rancher-server-proxy
-  ports: 
-    - "18080:8080"
-  environment: 
-    - RANCHER_SERVER_IP="172.17.0.3:8080"
-```
-
 ## LICENSE
 
 ```
