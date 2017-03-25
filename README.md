@@ -1,4 +1,4 @@
-# Rancher Server proxy [![Build Status](https://travis-ci.org/tokyohomesoc/rancher-server-proxy.svg?branch=master)](https://travis-ci.org/tokyohomesoc/rancher-server-proxy)
+# nginx-proxy-alpine [![Build Status](https://travis-ci.org/tokyohomesoc/nginx-proxy-alpine.svg?branch=master)](https://travis-ci.org/tokyohomesoc/nginx-proxy-alpine)
 
 ## HOU TO
 ```yaml
