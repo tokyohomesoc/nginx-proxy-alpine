@@ -10,7 +10,7 @@ RUN \
             curl \
     && curl -fSL https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY}/s6-overlay-amd64.tar.gz \
         -o /tmp/s6-overlay-amd64.tar.gz \
-    && tar xzf /tmp/s6-overlay-amd64.tar.gz -C /
+    && tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
     && rm /tmp/s6-overlay-amd64.tar.gz \
     \
     && curl -fSL https://github.com/jwilder/docker-gen/releases/download/$DOCKER_GEN_VERSION/docker-gen-alpine-linux-amd64-$DOCKER_GEN_VERSION.tar.gz \
