@@ -22,6 +22,7 @@ RUN \
 WORKDIR /app/
 COPY nginx.tmpl /app/nginx.tmpl
 COPY services.d /etc/services.d/
+COPY fix-attrs.d /etc/fix-attrs.d/
 
 ENV DOCKER_HOST unix:///tmp/docker.sock
 
