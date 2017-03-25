@@ -23,4 +23,6 @@ WORKDIR /app/
 COPY nginx.tmpl /app/nginx.tmpl
 COPY services.d /etc/services.d/
 
+ENV DOCKER_HOST unix:///tmp/docker.sock
+
 ENTRYPOINT ["/init"]
