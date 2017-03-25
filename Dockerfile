@@ -4,7 +4,7 @@ MAINTAINER HomeSOC Tokyo <github@homesoc.tokyo>
 
 ARG DOCKER_GEN_VERSION=0.7.3
 ARG S6_OVERLAY=1.19.1.1
-RUN 
+RUN \
        apk add --no-cache \
             bash \
             curl \
