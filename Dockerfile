@@ -24,3 +24,4 @@ COPY nginx.tmpl /app/nginx.tmpl
 COPY services.d /etc/services.d/
 
 ENTRYPOINT ["/init"]
+CMD ["/usr/bin/s6-svscan", "/etc/service"]
