@@ -17,7 +17,6 @@ RUN \
         -o docker-gen-alpine-linux-amd64-$DOCKER_GEN_VERSION.tar.gz \
     && tar -C /usr/local/bin -xvzf docker-gen-alpine-linux-amd64-$DOCKER_GEN_VERSION.tar.gz \
     && rm /docker-gen-alpine-linux-amd64-$DOCKER_GEN_VERSION.tar.gz
- 
 
 WORKDIR /app/
 COPY nginx.tmpl /app/nginx.tmpl
