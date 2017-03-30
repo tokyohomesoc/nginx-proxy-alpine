@@ -22,4 +22,5 @@ WORKDIR /app/
 COPY nginx.tmpl /app/nginx.tmpl
 COPY services.d /etc/services.d/
 
+VOLUME /etc/nginx/certs
 ENTRYPOINT ["/init"]
