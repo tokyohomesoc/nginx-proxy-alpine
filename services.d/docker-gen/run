@@ -1,2 +1,0 @@
-#!/bin/bash
-/usr/local/bin/docker-gen -endpoint unix:///tmp/docker.sock -watch -notify "nginx -s reload" /app/nginx.tmpl /etc/nginx/conf.d/default.conf

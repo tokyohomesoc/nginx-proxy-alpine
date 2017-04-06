@@ -1,5 +1,32 @@
 # nginx-proxy-alpine [![Build Status](https://travis-ci.org/tokyohomesoc/nginx-proxy-alpine.svg?branch=master)](https://travis-ci.org/tokyohomesoc/nginx-proxy-alpine)
 
+# HOU TO
+```yaml
+version: '2'
+services: 
+  nginx-proxy-alpine:
+      image: tokyohomesoc/nginx-proxy-alpine
+      container_name: nginx-proxy-alpine
+      restart: always
+      hostname: nginx-proxy-alpine
+      ports:
+      -  "80:80"
+      - "443:443"
+      volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /home/rancher/nginx/certs:/etc/nginx/certs:ro
+      - /home/rancher/nginx/conf.d:/etc/nginx/conf.d
+      - /home/rancher/nginx/vhost.d:/etc/nginx/vhost.d
+      - /home/rancher/nginx/html:/usr/share/nginx/html
+  docker-gen:
+    image: jwilder/docker-gen
+    container_name: docker-gen
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    volumes_from: 
+      - nginx-proxy-alpine
+    command: ["-notify-sighup", "nginx-proxy-alpine", "-watch", "-wait", "5s:30s", "/app/nginx.tmpl", "/etc/nginx/conf.d/default.conf"]
+```
 ## LICENSE
 
 ```
