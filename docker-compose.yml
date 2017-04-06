@@ -1,5 +1,12 @@
 version: '2'
 services: 
+  nginx-certs:
+    image: busybox
+    container_name: nginx-certs
+    restart: always
+    volumes:
+      - /etc/nginx/certs
+    command: /bin/sh
   nginx-proxy-alpine:
       image: tokyohomesoc/nginx-proxy-alpine
       container_name: nginx-proxy-alpine
@@ -10,10 +17,8 @@ services:
       - "443:443"
       volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - /home/rancher/nginx/certs:/etc/nginx/certs:ro
-      - /home/rancher/nginx/conf.d:/etc/nginx/conf.d
-      - /home/rancher/nginx/vhost.d:/etc/nginx/vhost.d
-      - /home/rancher/nginx/html:/usr/share/nginx/html
+      volumes_from: 
+      - nginx-certs:ro
   docker-gen:
     image: jwilder/docker-gen
     container_name: docker-gen
@@ -30,6 +35,6 @@ services:
       NGINX_PROXY_CONTAINER: docker-gen
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock:ro
-    - /home/rancher/nginx/certs:/etc/nginx/certs:rw
     volumes_from:
-    - nginx-proxy-alpine
+    - nginx-certs:rw
+    - nginx-proxy-alpine:rw

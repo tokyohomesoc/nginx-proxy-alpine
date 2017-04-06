@@ -16,5 +16,8 @@ WORKDIR /app/
 COPY nginx.tmpl /app/nginx.tmpl
 
 VOLUME /etc/nginx/certs
+VOLUME /etc/nginx/conf.d
+VOLUME /etc/nginx/vhost.d
+VOLUME /usr/share/nginx/html
 
 CMD ["forego", "start", "-r"]
