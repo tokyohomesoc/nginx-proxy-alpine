@@ -20,4 +20,4 @@ VOLUME /etc/nginx/conf.d
 VOLUME /etc/nginx/vhost.d
 VOLUME /usr/share/nginx/html
 
-CMD ["forego", "start", "-r"]
+CMD ["nginx", "-g", "daemon off;"]
