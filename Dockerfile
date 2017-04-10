@@ -19,6 +19,5 @@ VOLUME /etc/nginx/certs
 VOLUME /etc/nginx/conf.d
 VOLUME /etc/nginx/vhost.d
 VOLUME /usr/share/nginx/html
-VOLUME /app
 
 CMD ["nginx", "-g", "daemon off;"]
