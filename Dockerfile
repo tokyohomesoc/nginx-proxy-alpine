@@ -12,13 +12,13 @@ RUN \
     && tar -C /usr/local/bin -xvzf docker-gen-alpine-linux-amd64-$DOCKER_GEN_VERSION.tar.gz \
     && rm /docker-gen-alpine-linux-amd64-$DOCKER_GEN_VERSION.tar.gz
 
-WORKDIR /template/
-COPY nginx.tmpl /template/nginx.tmpl
+WORKDIR /app/
+COPY nginx.tmpl /app/nginx.tmpl
 
 VOLUME /etc/nginx/certs
 VOLUME /etc/nginx/conf.d
 VOLUME /etc/nginx/vhost.d
 VOLUME /usr/share/nginx/html
-VOLUME /template
+VOLUME /app
 
 CMD ["nginx", "-g", "daemon off;"]
